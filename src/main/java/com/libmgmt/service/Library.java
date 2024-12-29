@@ -55,4 +55,22 @@ public class Library {
         return false;
     }
 
+    public boolean returnBook(String isbn) throws Exception{
+        boolean isavailable = availableBook(isbn);
+        boolean bookFound = false;
+        if(isavailable == false){
+            throw new Exception("Book Not Found");
+        }
+
+        for(int i=0; i<booklist.size();i++){
+            Book b = booklist.get(i);
+            if(b.getIsbn().equals(isbn) && b.isAvailable()==false ){
+                b.setAvailable(true);
+                bookFound = true;
+                break;
+            }
+        }
+        return bookFound;
+    }
+
 }
