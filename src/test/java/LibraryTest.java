@@ -85,4 +85,14 @@ public class LibraryTest {
             assertEquals(1,library.viewAvailableBook().size());
         }
     }
+
+
+    //Zero Size Book List
+    @Test
+    public void testViewAvailableBookNoBook(){
+        {
+
+            assertEquals(0,library.viewAvailableBook().size());
+        }
+    }
 }
