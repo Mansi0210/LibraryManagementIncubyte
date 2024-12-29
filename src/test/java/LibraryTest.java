@@ -62,5 +62,19 @@ public class LibraryTest {
         }
     }
 
+    //Return Book Failure
+    @Test
+    public void testReturnBookFailure(){
+        Book book = new Book("1234","Harry Potter","Mansi",2003);
+        assertEquals(true,library.addBook(book));
+        try{
+            assertEquals(true,library.borrowBook("1234"));
+            assertEquals(true,library.returnBook("1234"));
+            assertEquals(false,library.returnBook("1234"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
