@@ -35,5 +35,19 @@ public class LibraryTest {
         }
     }
 
+    //Borrow Book Failure
+    @Test
+    public void testBorrowBookFailure(){
+        Book book = new Book("1234","RichMan","Rishva",2007);
+        assertEquals(true,library.addBook(book));
+        try{
+            assertEquals(true,library.borrowBook("1234"));
+            assertEquals(false, library.borrowBook("1234"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 }
