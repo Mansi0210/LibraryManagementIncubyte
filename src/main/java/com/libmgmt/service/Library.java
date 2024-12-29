@@ -73,4 +73,14 @@ public class Library {
         return bookFound;
     }
 
+    public ArrayList<Book> viewAvailableBook(){
+        ArrayList<Book> availableBooks = new ArrayList<>();
+        for(Book b: booklist){
+            if(b.isAvailable()){
+                availableBooks.add(b);
+            }
+        }
+        return availableBooks;
+    }
+
 }
