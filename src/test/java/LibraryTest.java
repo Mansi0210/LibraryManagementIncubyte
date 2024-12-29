@@ -22,5 +22,18 @@ public class LibraryTest {
         assertEquals(false,library.addBook(book2));
     }
 
+    //Borrow Book Success
+    @Test
+    public void testBorrowBook(){
+        Book book = new Book("7890","RichMan","Rishva",2007);
+        assertEquals(true,library.addBook(book));
+        try {
+            assertEquals(true, library.borrowBook("7890"));
+        } catch (Exception e) {
+            // throw new RuntimeException(e);
+            e.printStackTrace();
+        }
+    }
+
 
 }
