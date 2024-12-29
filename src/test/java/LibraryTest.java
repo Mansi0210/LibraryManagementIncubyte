@@ -76,5 +76,13 @@ public class LibraryTest {
         }
     }
 
-
+    //View Book List
+    @Test
+    public void testViewAvailableBook(){
+        {
+            Book book = new Book("1234","Harry Potter","Mansi",2003);
+            assertEquals(true,library.addBook(book));
+            assertEquals(1,library.viewAvailableBook().size());
+        }
+    }
 }
