@@ -28,5 +28,31 @@ public class Library {
         return true;
     }
 
+    public boolean borrowBook(String isbn) throws Exception {
+        boolean isavailable = availableBook(isbn);
+        boolean bookFound = false;
+        if (isavailable == false) {
+            throw new Exception("Book Not Found");
+        }
+        for (int i = 0; i < booklist.size(); i++) {
+            Book b = booklist.get(i);
+            if (b.getIsbn().equals(isbn) && b.isAvailable()==true ) {
+                b.setAvailable(false);
+                booklist.set(i, b);
+                bookFound = true;
+                break;
+            }
+        }
+
+        return bookFound;
+    }
+    public boolean availableBook(String isbn){
+        for(Book b : booklist){
+            if(b.getIsbn().equals(isbn)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
